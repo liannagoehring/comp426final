@@ -34,14 +34,25 @@
 
         <div class="column">
 
-            <h1 class="title is-size-2 has-text-centered">Find recipes!</h1>
+            <h1 class="title is-size-2 has-text-centered">Don't feel like cooking? Find a restaurant near you!</h1>
+
+            <div class="columns is-multiline">
+                <div class="column">
+                    <div class="control">
+                        <input class="input" id="zip_text" type="text" placeholder="Zip Code">
+                    </div>
+                </div>
+                <div class="column">
+                    <button class="button" id="enter_zip">Enter</button>
+                </div>
+            </div>
             
         </div>
 
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="finder.js"></script>
+    <script src="rest.js"></script>
     <script src="../node_modules/axios/dist/axios.js"></script>
 
 </body>
