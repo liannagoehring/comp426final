@@ -1,7 +1,7 @@
 {
   "name": "lunchbox",
   "version": "1.0.0",
-  "description": "",
+  "description": "Creating a website to find recipes and get cooking tips.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1"
-  }
+    "axios": "^0.21.1",
+    "firebase": "^8.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liannagoehring/comp426final.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liannagoehring/comp426final/issues"
+  },
+  "homepage": "https://github.com/liannagoehring/comp426final#readme"
 }
