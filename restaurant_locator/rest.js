@@ -31,8 +31,14 @@ $(function() {
     }
     
     const handle_enterzip_button = function(event) {
-        document.getElementById('zip_rest_text').innerHTML = 'Restaurants near ' + $('#zip_text').val() + ':'
-        const rest_list = zipcode($('#zip_text').val()).then(function(result) {
+        while (document.getElementById('restaurants').firstChild) {
+                document.getElementById('restaurants').removeChild(document.getElementById('restaurants').firstChild);
+            }
+        if ($('#zip_text').val().length !== 5) {
+            document.getElementById('zip_rest_text').innerHTML = 'Please enter a valid zipcode.'
+        } else {
+            document.getElementById('zip_rest_text').innerHTML = 'Restaurants near ' + $('#zip_text').val() + ':'
+            const rest_list = zipcode($('#zip_text').val()).then(function(result) {
             curr_list = result.data
             for (let i = 0; i < curr_list.length; i++) {
                 $restaurants.append(
@@ -46,6 +52,7 @@ $(function() {
                 )
             }
         })
+        }
     }
 
 
