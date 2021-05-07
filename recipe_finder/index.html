@@ -34,11 +34,33 @@
 
         <div class="column">
 
-            <h1 class="title is-size-2 has-text-centered">Find recipes!</h1>
+                <h1 class="title is-size-2 has-text-centered">Find Recipes</h1>
+                <h2 class="subtitle is-size-5 has-text-centered">Enter a comma-separated list of ingredients you want to use in your meal. We'll show you some recipes you might be interested in!</h1>
+
+            <div class="columns is-multiline">
+                <div class="column">
+                    <div class="control">
+                        <input class="input" id="ingr_text" type="text" placeholder="Ingredients">
+                    </div>
+                </div>
+                <div class="column">
+                    <button class="button" id="enter_ingr">Enter</button>
+                </div>
+            </div>
             
         </div>
 
+        <div class="column has-background-light">
+            <h2 class="subtitle is-size-4" id="recipes_text"></h2> 
+        </div>
+
+
+        <div class="column has-background-light" id="recipes_found">
+             
+        </div>
+
     </div>
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="finder.js"></script>

@@ -1,30 +1,6 @@
 $(function() {
     const $root = $('#root');
 
-    async function get_recipe(ingr) {
-        str = ingr[0] + ",";
-        for (var i = 1; i < ingr.length; i++) {
-            if (i === ingr.length - 1) {
-                str += "+" + ingr[i];
-            } else {
-                str += "+" + ingr[i] + ",";
-            }
-        }
-        const result = await axios({
-            method: 'get',
-            url: "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + str + "&apiKey=84b4bc51befa47c3a19edad6580c777e",
-        });
-        return result;
-    }
-
-    async function random_recipe() {
-        const result = await axios({
-            method: 'get',
-            url: "https://api.spoonacular.com/recipes/random?number=1&apiKey=84b4bc51befa47c3a19edad6580c777e"
-        });
-        return result;
-    }
-
     const handle_home_button = function(event) {
         window.location.href = "index.html";
     }

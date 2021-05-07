@@ -108,7 +108,7 @@ $(function() {
                         `
                         <div class="column">
                             <h1 class="subtitle is-size-6">${recipe.summary}</h1>
-                            <div class="columns is-multiline">
+                            <div class="columns is-multiline justify-center">
                                 <div class="column">
                                     <img class="image" src="${recipe.image}">
                                 </div>
