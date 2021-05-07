@@ -104,7 +104,6 @@ $(function() {
         separate = removed_spaces.split(',')
         const curr_recipes = get_recipe(separate).then(function(result) {
             recipes = result
-            console.log(recipes)
             if (recipes.length == 0) {
                 document.getElementById('recipes_text').innerHTML = "We couldn't find any recipes with those ingredients. Try something else!"
             } else {
@@ -112,7 +111,6 @@ $(function() {
                 for (let i = 0; i < 3; i++) {
                     now = recipes[i]
                     const curr_info = info(now.id).then(function(result_id) {
-                        console.log(result_id)
                         $recipes_found.append(
                             `
                             <div class="column">
@@ -144,7 +142,6 @@ $(function() {
         pass = $('#password').val()
         const auth = firebase.auth()
         const promise = auth.signInWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message))
         event.target.parentNode.parentNode.parentNode.remove()
     }
 
@@ -153,7 +150,6 @@ $(function() {
         pass = $('#password').val()
         const auth = firebase.auth()
         const promise = auth.createUserWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message))
         event.target.parentNode.parentNode.parentNode.remove()
 
     }
@@ -192,7 +188,6 @@ $(function() {
             document.getElementById('account').innerHTML = 'Account: ' + email
             document.getElementById('login').innerHTML = ''
         } else {
-            console.log('not logged in')
             document.getElementById('account').innerHTML = ''
             document.getElementById('login').innerHTML = 'Login/Sign Up'
             document.getElementById('account').style.visibility = 'hidden'

@@ -112,26 +112,25 @@ $(function() {
         prev_id = last_id
         flipped++;
         if (document.getElementById(shuffled[event.target.id]).alt === "card_1") {
-            document.getElementById(event.target.id).src = "http://assets.stickpng.com/thumbs/580b57fbd9996e24bc43c0b1.png"
+            document.getElementById(event.target.id).src = "https://www.freeiconspng.com/uploads/ice-cream-png-11.png"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_2") {
-            document.getElementById(event.target.id).src = "http://assets.stickpng.com/thumbs/580b57fbd9996e24bc43c0f0.png"
+            document.getElementById(event.target.id).src = "https://www.transparentpng.com/thumb/carrot/AciY35-carrot-transparent-picture.png"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_3") {
-            document.getElementById(event.target.id).src = "http://assets.stickpng.com/images/580b57fbd9996e24bc43c0b2.png"
+            document.getElementById(event.target.id).src = "https://lh3.googleusercontent.com/proxy/tYEr1HHV4LpmeFj75USLMHHGDtAaYsazZEAtKqvgQNiklh98Pz6D03wCunGxa_8wxhASeMhDyrb95Nkc6l-7ksIS0yV6WI3kX_F9mAGFqp9GvQRLyvUvXRRHpELI"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_4") {
-            document.getElementById(event.target.id).src = "http://assets.stickpng.com/thumbs/5ea15037e0ebe6000479458a.png"
+            document.getElementById(event.target.id).src = "https://pngimg.com/uploads/lemonade/lemonade_PNG16937.png"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_5") {
-            document.getElementById(event.target.id).src = "http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c12d.png"
+            document.getElementById(event.target.id).src = "http://assets.stickpng.com/images/5ea1504ae0ebe6000479458b.png"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_6") {
-            document.getElementById(event.target.id).src = "http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c19e.png"
+            document.getElementById(event.target.id).src = "https://pngimg.com/uploads/chocolate_cake/chocolate_cake_PNG16.png"
         }
         if (flipped === 2) {
             if (document.getElementById(shuffled[prev_id]).alt === document.getElementById(shuffled[event.target.id]).alt) {
-                console.log('match')
                 document.getElementById(event.target.id).disabled = true;
                 document.getElementById(prev_id).disabled = true;
                 correct += 2
@@ -182,7 +181,6 @@ $(function() {
         pass = $('#password').val()
         const auth = firebase.auth()
         const promise = auth.signInWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message))
         event.target.parentNode.parentNode.parentNode.remove()
     }
 
@@ -191,7 +189,6 @@ $(function() {
         pass = $('#password').val()
         const auth = firebase.auth()
         const promise = auth.createUserWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message))
         event.target.parentNode.parentNode.parentNode.remove()
 
     }
@@ -230,7 +227,6 @@ $(function() {
             document.getElementById('account').innerHTML = 'Account: ' + email
             document.getElementById('login').innerHTML = ''
         } else {
-            console.log('not logged in')
             document.getElementById('account').innerHTML = ''
             document.getElementById('login').innerHTML = 'Login/Sign Up'
             document.getElementById('account').style.visibility = 'hidden'

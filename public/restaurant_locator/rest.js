@@ -114,7 +114,6 @@ $(function() {
         pass = $('#password').val()
         const auth = firebase.auth()
         const promise = auth.signInWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message))
         event.target.parentNode.parentNode.parentNode.remove()
     }
 
@@ -123,7 +122,6 @@ $(function() {
         pass = $('#password').val()
         const auth = firebase.auth()
         const promise = auth.createUserWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message))
         event.target.parentNode.parentNode.parentNode.remove()
 
     }
@@ -162,7 +160,6 @@ $(function() {
             document.getElementById('account').innerHTML = 'Account: ' + email
             document.getElementById('login').innerHTML = ''
         } else {
-            console.log('not logged in')
             document.getElementById('account').innerHTML = ''
             document.getElementById('login').innerHTML = 'Login/Sign Up'
             document.getElementById('account').style.visibility = 'hidden'
