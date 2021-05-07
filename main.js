@@ -10,20 +10,19 @@ $(function() {
                 str += "+" + ingr[i] + ",";
             }
         }
-        // const result = await axios({
-        //     method: 'get',
-        //     url: "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + str + "&apiKey=84b4bc51befa47c3a19edad6580c777e",
-        // });
-        // return result;
+        const result = await axios({
+            method: 'get',
+            url: "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + str + "&apiKey=84b4bc51befa47c3a19edad6580c777e",
+        });
+        return result;
     }
 
     async function random_recipe() {
-        // const result = await axios({
-        //     method: 'get',
-        //     url: "https://api.spoonacular.com/recipes/random?number=1&apiKey=84b4bc51befa47c3a19edad6580c777e"
-        // });
-        // return result;
-        //document.getElementById('login').innerHTML = 'hey'
+        const result = await axios({
+            method: 'get',
+            url: "https://api.spoonacular.com/recipes/random?number=1&apiKey=84b4bc51befa47c3a19edad6580c777e"
+        });
+        return result;
     }
 
     const handle_home_button = function(event) {
