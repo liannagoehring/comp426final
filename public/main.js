@@ -1,5 +1,7 @@
 $(function() {
     const $root = $('#root');
+    document.getElementById('account').style.visibility = 'hidden'
+    document.getElementById('login').style.visibility = 'hidden'
 
     var firebaseConfig = {
         apiKey: "AIzaSyCPWAXJYQuQ_mjjr89ZVcxwcr_7_jg2AD0",
@@ -14,9 +16,8 @@ $(function() {
     firebase.initializeApp(firebaseConfig);
 
     var email = ""
-    var password = ""
+    var pass = ""
 
-    document.getElementById('account').style.visibility = 'hidden'
 
     const handle_home_button = function(event) {
         window.location.href = "index.html";
@@ -96,10 +97,11 @@ $(function() {
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title">Saved Recipes</p>
+        <p class="modal-card-title">User: ${email}</p>
         <button class="delete" aria-label="close"></button>
       </header>
-      <section class="modal-card-body">
+      <section class="modal-card-body" id="saved_recipes">
+        <label class="label">Saved Recipes</label>
       </section>
       <footer class="modal-card-foot">
         <button class="button logout">Logout</button>
@@ -116,11 +118,16 @@ $(function() {
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
-            console.log(firebaseUser)
+            email = firebaseUser.email
+            pass = firebaseUser.password
             document.getElementById('account').style.visibility = 'visible'
             document.getElementById('login').style.visibility = 'hidden'
+            document.getElementById('account').innerHTML = 'Account: ' + email
+            document.getElementById('login').innerHTML = ''
         } else {
             console.log('not logged in')
+            document.getElementById('account').innerHTML = ''
+            document.getElementById('login').innerHTML = 'Login/Sign Up'
             document.getElementById('account').style.visibility = 'hidden'
             document.getElementById('login').style.visibility = 'visible'
         }

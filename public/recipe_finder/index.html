@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>Lunchbox</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
-        <link rel="stylesheet" href="../body.css" />
+    <link rel="stylesheet" href="../body.css" />
+
 
 </head>
 <body class="has-background-light" id="root">
-
 
 
     <nav class="navbar has-shadow is-dark">
@@ -26,7 +26,8 @@
                 <a class="navbar-item" id="game">Memory Game</a>
             </div>
             <div class="navbar-end">
-                <a class="navbar-item" id="login">Login/Sign Up</a>
+                <a class="navbar-item" id="login"></a>
+                <a class="navbar-item" id="account"></a>
             </div>
         </div>
 
@@ -36,36 +37,42 @@
 
         <div class="column">
 
-            <h1 class="title is-size-2 has-text-centered">Find Restaurants</h1>
-            <h2 class="subtitle is-size-5 has-text-centered">Don't feel like coooking? Enter your zip code to find some nearby restaurants.</h1>
-
+                <h1 class="title is-size-2 has-text-centered">Find Recipes</h1>
+                <h2 class="subtitle is-size-5 has-text-centered">Enter a comma-separated list of ingredients you want to use in your meal. We'll show you some recipes you might be interested in!</h1>
 
             <div class="columns is-multiline">
                 <div class="column">
                     <div class="control">
-                        <input class="input" id="zip_text" type="text" placeholder="Zip Code">
+                        <input class="input" id="ingr_text" type="text" placeholder="Ingredients">
                     </div>
                 </div>
                 <div class="column">
-                    <button class="button" id="enter_zip">Enter</button>
+                    <button class="button" id="enter_ingr">Enter</button>
                 </div>
             </div>
             
         </div>
 
+        <div class="column has-background-light">
+            <h2 class="subtitle is-size-4" id="recipes_text"></h2> 
+        </div>
+
+
+    <div class="column has-background-light" id="recipes_found">
+             
+        </div>
+
     </div>
 
-    <div class="column">
-        <h2 class="subtitle is-size-4" id="zip_rest_text"></h2> 
-    </div>
-
-    <div class="container is-fluid has-background-light" id="restaurants">
-
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="rest.js"></script>
+    <script src="finder.js"></script>
     <script src="../node_modules/axios/dist/axios.js"></script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
 
 </body>
 </html>
