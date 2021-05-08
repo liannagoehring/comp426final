@@ -112,22 +112,22 @@ $(function() {
         prev_id = last_id
         flipped++;
         if (document.getElementById(shuffled[event.target.id]).alt === "card_1") {
-            document.getElementById(event.target.id).src = "https://www.freeiconspng.com/uploads/ice-cream-png-11.png"
+            document.getElementById(event.target.id).src = "http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c12c.png"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_2") {
             document.getElementById(event.target.id).src = "https://www.transparentpng.com/thumb/carrot/AciY35-carrot-transparent-picture.png"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_3") {
-            document.getElementById(event.target.id).src = "https://lh3.googleusercontent.com/proxy/tYEr1HHV4LpmeFj75USLMHHGDtAaYsazZEAtKqvgQNiklh98Pz6D03wCunGxa_8wxhASeMhDyrb95Nkc6l-7ksIS0yV6WI3kX_F9mAGFqp9GvQRLyvUvXRRHpELI"
+            document.getElementById(event.target.id).src = "https://pngimg.com/uploads/sushi/sushi_PNG98863.png"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_4") {
-            document.getElementById(event.target.id).src = "https://pngimg.com/uploads/lemonade/lemonade_PNG16937.png"
+            document.getElementById(event.target.id).src = "https://lh3.googleusercontent.com/proxy/5Wt5B72o2tnWoeRYbabbowL_c-WoslA8NAUMovfsTvxRQKDaFT0bb-99y98GaFjwyaiaO5DWiON5BnF9bzrnO-r_x3XEsw3WxN50DA98sgXprDx4SB8UWaRzxjwu"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_5") {
-            document.getElementById(event.target.id).src = "http://assets.stickpng.com/images/5ea1504ae0ebe6000479458b.png"
+            document.getElementById(event.target.id).src = "https://lh3.googleusercontent.com/proxy/OSxDJMlC4Y6dP95WdJSIh7Yl346YtjvuTpzGvjfKExfXhhR3wyU-bL3ekG6Xlm6vF3kWuKtatEWruVNIiEnA-GgLhXC5jUy-dglDO_1EwJiIR-MGtwJ7PgqQTkGKbj4"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_6") {
-            document.getElementById(event.target.id).src = "https://pngimg.com/uploads/chocolate_cake/chocolate_cake_PNG16.png"
+            document.getElementById(event.target.id).src = "https://www.pngarts.com/files/2/Salad-PNG-Image-with-Transparent-Background.png"
         }
         if (flipped === 2) {
             if (document.getElementById(shuffled[prev_id]).alt === document.getElementById(shuffled[event.target.id]).alt) {
