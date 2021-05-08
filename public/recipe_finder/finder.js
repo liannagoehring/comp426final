@@ -127,7 +127,7 @@ $(function() {
                                     <div class="column">
                                         <h1 class="subtitle is-size-6">Check out the recipe <a href="${result_id.sourceUrl}"> here. </a> </h1>
                                         <h1 class="subtitle is-size-6">${result_id.instructions}</h1>
-                                        <button class="button save" id=${result_id.id}>Save Recipe</button>
+                                        <button class="button save" id=${result_id.id}>Favorite Recipe</button>
                                     </div>
                                 </div>
                             </div>

@@ -125,13 +125,13 @@ $(function() {
             document.getElementById(event.target.id).src = "https://pngimg.com/uploads/sushi/sushi_PNG98863.png"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_4") {
-            document.getElementById(event.target.id).src = "https://lh3.googleusercontent.com/proxy/5Wt5B72o2tnWoeRYbabbowL_c-WoslA8NAUMovfsTvxRQKDaFT0bb-99y98GaFjwyaiaO5DWiON5BnF9bzrnO-r_x3XEsw3WxN50DA98sgXprDx4SB8UWaRzxjwu"
+            document.getElementById(event.target.id).src = "http://pngimg.com/uploads/chocolate_cake/small/chocolate_cake_PNG40.png"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_5") {
-            document.getElementById(event.target.id).src = "https://lh3.googleusercontent.com/proxy/OSxDJMlC4Y6dP95WdJSIh7Yl346YtjvuTpzGvjfKExfXhhR3wyU-bL3ekG6Xlm6vF3kWuKtatEWruVNIiEnA-GgLhXC5jUy-dglDO_1EwJiIR-MGtwJ7PgqQTkGKbj4"
+            document.getElementById(event.target.id).src = "http://pngimg.com/uploads/strawberry/small/strawberry_PNG2633.png"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_6") {
-            document.getElementById(event.target.id).src = "https://www.pngarts.com/files/2/Salad-PNG-Image-with-Transparent-Background.png"
+            document.getElementById(event.target.id).src = "http://pngimg.com/uploads/pasta/small/pasta_PNG102.png"
         }
         if (flipped === 2) {
             if (document.getElementById(shuffled[prev_id]).alt === document.getElementById(shuffled[event.target.id]).alt) {
