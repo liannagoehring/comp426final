@@ -1,4 +1,4 @@
 # comp426final
-Creating a web app to find recipes and local restaurants. Also includes a memory card game that gives a random recipe upon winning. 
+Final project for COMP 426 at UNC-Chapel Hill.
 
 https://lunchbox-comp426.firebaseapp.com/
