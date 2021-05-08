@@ -4,19 +4,23 @@ $(function() {
     document.getElementById('login').style.visibility = 'hidden'
 
     var firebaseConfig = {
-        apiKey: "AIzaSyCPWAXJYQuQ_mjjr89ZVcxwcr_7_jg2AD0",
-        authDomain: "lunchbox-comp426.firebaseapp.com",
-        projectId: "lunchbox-comp426",
-        storageBucket: "lunchbox-comp426.appspot.com",
-        messagingSenderId: "17403484587",
-        appId: "1:17403484587:web:fcd56d1b209239deb49aee",
-        measurementId: "G-2Z8VF93PZE"
-    };
+      apiKey: "AIzaSyCPWAXJYQuQ_mjjr89ZVcxwcr_7_jg2AD0",
+      authDomain: "lunchbox-comp426.firebaseapp.com",
+      projectId: "lunchbox-comp426",
+      storageBucket: "lunchbox-comp426.appspot.com",
+      messagingSenderId: "17403484587",
+      appId: "1:17403484587:web:fcd56d1b209239deb49aee",
+      measurementId: "G-2Z8VF93PZE"
+  };
 
-    firebase.initializeApp(firebaseConfig);
 
-    var email = ""
-    var pass = ""
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore()
+
+  var email = ""
+  var pass = ""
+  var uid = ""
 
 
     const handle_home_button = function(event) {
@@ -90,23 +94,40 @@ $(function() {
     }
 
     const handle_submit_account = function(event) {
-        $root.append(`
-        <div class="modal is-active">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">User: ${email}</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body" id="saved_recipes">
-        <label class="label">Saved Recipes</label>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button logout">Logout</button>
-      </footer>
-    </div>
-  </div>`)
-    }
+      $root.append(`
+      <div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">User: ${email}</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body" id="saved_recipes">
+      <label class="label is-size-5">Favorite Recipe</label>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button logout">Logout</button>
+    </footer>
+  </div>
+</div>`)
+
+      db.collection('users').get().then((snapshot) => {
+          snapshot.docs.forEach(doc => {
+              const user_id = doc.id
+              const user_data = doc.data()
+              if (user_id === uid) {
+                  for (let i = 0; i < user_data.name.length; i++) {
+                      $('#saved_recipes').append(
+                          `<div class="column">
+                              <h1 class="subtitle is-size-6"><a href="${user_data.link[i]}">${user_data.name[i]}</a> </h1>
+                          </div>`
+                      )
+                  }
+              }
+          })
+      })
+  }
+
 
     const handle_submit_logout = function(event) {
         firebase.auth().signOut()
@@ -115,20 +136,21 @@ $(function() {
     }
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-            email = firebaseUser.email
-            pass = firebaseUser.password
-            document.getElementById('account').style.visibility = 'visible'
-            document.getElementById('login').style.visibility = 'hidden'
-            document.getElementById('account').innerHTML = 'Account: ' + email
-            document.getElementById('login').innerHTML = ''
-        } else {
-            document.getElementById('account').innerHTML = ''
-            document.getElementById('login').innerHTML = 'Login/Sign Up'
-            document.getElementById('account').style.visibility = 'hidden'
-            document.getElementById('login').style.visibility = 'visible'
-        }
-    })
+      if (firebaseUser) {
+          email = firebaseUser.email
+          pass = firebaseUser.password
+          uid = firebaseUser.uid
+          document.getElementById('account').style.visibility = 'visible'
+          document.getElementById('login').style.visibility = 'hidden'
+          document.getElementById('account').innerHTML = 'Account: ' + email
+          document.getElementById('login').innerHTML = ''
+      } else {
+          document.getElementById('account').innerHTML = ''
+          document.getElementById('login').innerHTML = 'Login/Sign Up'
+          document.getElementById('account').style.visibility = 'hidden'
+          document.getElementById('login').style.visibility = 'visible'
+      }
+  })
 
 
    

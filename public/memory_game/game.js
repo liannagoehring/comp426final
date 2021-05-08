@@ -15,10 +15,14 @@ $(function() {
         measurementId: "G-2Z8VF93PZE"
     };
 
+
+
     firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore()
 
     var email = ""
     var pass = ""
+    var uid = ""
 
 
 
@@ -83,7 +87,7 @@ $(function() {
     async function random() {
         const result = await axios({
             method: 'get',
-            url: "https://api.spoonacular.com/recipes/random?number=1&apiKey=84b4bc51befa47c3a19edad6580c777e"
+            url: "https://api.spoonacular.com/recipes/random?number=1&apiKey=575d0ecd59334402b69f88c49da42385"
         });
         return result;
     }
@@ -202,14 +206,29 @@ $(function() {
         <p class="modal-card-title">User: ${email}</p>
         <button class="delete" aria-label="close"></button>
       </header>
-      <section class="modal-card-body">
-        <label class="label">Saved Recipes</label>
+      <section class="modal-card-body" id="saved_recipes">
+        <label class="label is-size-5">Favorite Recipe</label>
       </section>
       <footer class="modal-card-foot">
         <button class="button logout">Logout</button>
       </footer>
     </div>
   </div>`)
+        db.collection('users').get().then((snapshot) => {
+            snapshot.docs.forEach(doc => {
+                const user_id = doc.id
+                const user_data = doc.data()
+                if (user_id === uid) {
+                    for (let i = 0; i < user_data.name.length; i++) {
+                        $('#saved_recipes').append(
+                            `<div class="column">
+                                <h1 class="subtitle is-size-6"><a href="${user_data.link[i]}">${user_data.name[i]}</a> </h1>
+                            </div>`
+                        )
+                    }
+                }
+            })
+        })
     }
 
     const handle_submit_logout = function(event) {
@@ -222,6 +241,7 @@ $(function() {
         if (firebaseUser) {
             email = firebaseUser.email
             pass = firebaseUser.password
+            uid = firebaseUser.uid
             document.getElementById('account').style.visibility = 'visible'
             document.getElementById('login').style.visibility = 'hidden'
             document.getElementById('account').innerHTML = 'Account: ' + email
