@@ -116,7 +116,7 @@ $(function() {
         prev_id = last_id
         flipped++;
         if (document.getElementById(shuffled[event.target.id]).alt === "card_1") {
-            document.getElementById(event.target.id).src = "http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c12c.png"
+            document.getElementById(event.target.id).src = "https://freepngimg.com/thumb/avocado/1-2-avocado-png-clipart.png"
         }
         if (document.getElementById(shuffled[event.target.id]).alt === "card_2") {
             document.getElementById(event.target.id).src = "https://www.transparentpng.com/thumb/carrot/AciY35-carrot-transparent-picture.png"
